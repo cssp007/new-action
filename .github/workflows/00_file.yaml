@@ -7,4 +7,7 @@ jobs:
       - name: test
         run: echo "Running testing step"
       - name: testing-code
-        run: echo "Testing code"
+        run: |
+          echo "Testing code"
+          pwd
+          ls -ltr
