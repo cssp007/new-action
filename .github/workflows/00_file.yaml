@@ -3,6 +3,10 @@ on:
   push:
     branches:
     - main
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened]
   workflow_dispatch:
 jobs:
   first-job:
@@ -14,4 +18,13 @@ jobs:
         run: |
           echo "Testing code"
           pwd
-          ls -ltr
+          ls -ltra
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing again
+        run: echo "Hello World!!"
+      - name: test code again
+        run: |
+          echo "Bye bye..!!!"
+          echo "See you soon..........!!!!!!!!!!!"
