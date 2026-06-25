@@ -1,24 +1,22 @@
 name: First Workflow
 on: 
-  push:
-    branches:
-    - main
   pull_request:
     branches:
       - main
     types: [opened, reopened]
+    paths:
+      - "**.yaml"
   workflow_dispatch:
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: echo "Running testing step"
-      - name: testing-code
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: run script
         run: |
-          echo "Testing code"
-          pwd
-          ls -ltra
+          chmod +x testing.sh
+          ./testing.sh
   second-job:
     runs-on: ubuntu-latest
     steps:
