@@ -16,5 +16,5 @@ jobs:
     needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: pwd
-        run: pwd
+      - name: output github context
+        run: echo "${{ toJson(github) }}"
