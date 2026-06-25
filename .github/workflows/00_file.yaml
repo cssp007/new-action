@@ -1,11 +1,6 @@
 name: First Workflow
 on: 
-  pull_request:
-    branches:
-      - main
-    types: [opened, reopened]
-    paths:
-      - "**.yaml"
+  push:
   workflow_dispatch:
 jobs:
   first-job:
@@ -17,17 +12,3 @@ jobs:
         run: |
           chmod +x testing.sh
           ./testing.sh
-  second-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: testing again
-        run: echo "Hello World!!"
-      - name: test code again
-        run: |
-          echo "Bye bye..!!!"
-          echo "See you soon..........!!!!!!!!!!!"
-  bug-fixed-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: bug fixed
-        run: echo "We have fixed the bug..!!"
